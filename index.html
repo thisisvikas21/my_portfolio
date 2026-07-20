@@ -4,1486 +4,465 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#08090c" />
+
   <title>Vikas Sharma — AI Engineer</title>
   <meta name="description"
-    content="Vikas Sharma — AI Engineer. Deep Learning, Computer Vision, Edge Deployment, Agentic AI." />
-  <style>
-/* ============================================
-   VIKAS SHARMA — BENTO PORTFOLIO
-   Unique bento-grid dashboard layout
-   Terracotta • Sage • Sand palette
-   ============================================ */
-
-/* ---- Fonts ---- */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
-
-/* ---- Tokens ---- */
-:root {
-  /* Palette — Mediterranean-inspired */
-  --bg: #0d0d0c;
-  --surface: #161615;
-  --surface-raised: #1e1e1c;
-  --surface-hover: #252523;
-
-  --accent: #e07a5f;
-  /* terracotta */
-  --accent-glow: rgba(224, 122, 95, 0.15);
-  --secondary: #81b29a;
-  /* sage */
-  --secondary-glow: rgba(129, 178, 154, 0.12);
-  --tertiary: #f2cc8f;
-  /* sand */
-  --tertiary-glow: rgba(242, 204, 143, 0.10);
-
-  --text: #ece8e1;
-  --text-dim: #a09a92;
-  --text-faint: #5c5852;
-  --text-inverse: #0d0d0c;
-
-  --border: rgba(236, 232, 225, 0.07);
-  --border-hover: rgba(224, 122, 95, 0.25);
-
-  --font-display: 'Syne', sans-serif;
-  --font-mono: 'Space Mono', monospace;
-  --font-body: 'DM Sans', sans-serif;
-
-  --radius: 16px;
-  --radius-sm: 10px;
-  --gap: 14px;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* ---- Reset ---- */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-family: inherit;
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* ---- Grain Overlay ---- */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-size: 128px;
-}
-
-/* ============ MAIN LAYOUT ============ */
-.portfolio {
-  max-width: 1340px;
-  margin: 0 auto;
-  padding: 20px;
-  min-height: 100vh;
-}
-
-/* Top bar */
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0 24px;
-}
-
-.logo {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  color: var(--accent);
-}
-
-.top-links {
-  display: flex;
-  gap: 6px;
-}
-
-.top-links a {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  padding: 8px 16px;
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  transition: all 0.3s var(--ease);
-}
-
-.top-links a:hover {
-  color: var(--text);
-  border-color: var(--border-hover);
-  background: var(--accent-glow);
-}
-
-.top-links a svg {
-  vertical-align: -2px;
-  margin-right: 4px;
-}
-
-/* ============ BENTO GRID ============ */
-.bento {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: minmax(80px, auto);
-  gap: var(--gap);
-}
-
-/* ---- Shared card style ---- */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
-}
-
-.card:hover {
-  border-color: var(--border-hover);
-}
-
-.card-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  margin-bottom: 16px;
-}
-
-/* ============ HERO CARD ============ */
-.card-hero {
-  grid-column: 1 / 8;
-  grid-row: 1 / 4;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 40px;
-  background: var(--surface);
-  position: relative;
-}
-
-.card-hero::before {
-  content: '';
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-greeting {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--accent);
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-
-.hero-name {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.0;
-  letter-spacing: -2px;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.hero-name .accent {
-  color: var(--accent);
-}
-
-.hero-name .sage {
-  color: var(--secondary);
-}
-
-.hero-role {
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  font-weight: 500;
-  color: var(--text-dim);
-  min-height: 1.8em;
-}
-
-.hero-role .typed-cursor {
-  color: var(--accent);
-  animation: blink 0.7s step-end infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-.hero-summary {
-  font-size: 0.92rem;
-  color: var(--text-dim);
-  max-width: 520px;
-  margin-top: 20px;
-  line-height: 1.7;
-}
-
-/* ============ ABOUT CARD ============ */
-.card-about {
-  grid-column: 8 / 13;
-  grid-row: 1 / 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.about-text {
-  font-size: 0.9rem;
-  color: var(--text-dim);
-  line-height: 1.75;
-}
-
-.about-text strong {
-  color: var(--text);
-  font-weight: 500;
-}
-
-.about-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 20px;
-}
-
-.about-tag {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  padding: 5px 12px;
-  border-radius: 100px;
-  letter-spacing: 0.3px;
-}
-
-.about-tag.t1 {
-  background: var(--accent-glow);
-  color: var(--accent);
-  border: 1px solid rgba(224, 122, 95, 0.15);
-}
-
-.about-tag.t2 {
-  background: var(--secondary-glow);
-  color: var(--secondary);
-  border: 1px solid rgba(129, 178, 154, 0.15);
-}
-
-.about-tag.t3 {
-  background: var(--tertiary-glow);
-  color: var(--tertiary);
-  border: 1px solid rgba(242, 204, 143, 0.15);
-}
-
-/* ============ STAT CARDS ============ */
-.card-stat {
-  grid-row: span 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 24px 16px;
-}
-
-.card-stat:nth-of-type(3) {
-  grid-column: 8 / 10;
-}
-
-.card-stat:nth-of-type(4) {
-  grid-column: 10 / 13;
-}
-
-.stat-number {
-  font-family: var(--font-display);
-  font-size: 2.4rem;
-  font-weight: 800;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.stat-number.c1 {
-  color: var(--accent);
-}
-
-.stat-number.c2 {
-  color: var(--secondary);
-}
-
-.stat-desc {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-faint);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-/* ============ SKILLS CARD ============ */
-.card-skills {
-  grid-column: 1 / 13;
-  grid-row: span 2;
-}
-
-.skills-columns {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 4px;
-}
-
-.skills-group {
-  margin-bottom: 0;
-}
-
-.skills-group:last-child {
-  margin-bottom: 0;
-}
-
-.skills-group-title {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.skills-group-title .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-.dot.c-accent {
-  background: var(--accent);
-}
-
-.dot.c-sage {
-  background: var(--secondary);
-}
-
-.dot.c-sand {
-  background: var(--tertiary);
-}
-
-.skill-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.skill-chip {
-  font-size: 0.78rem;
-  padding: 6px 14px;
-  border-radius: 8px;
-  background: var(--surface-raised);
-  color: var(--text-dim);
-  border: 1px solid var(--border);
-  transition: all 0.3s var(--ease);
-}
-
-.skill-chip:hover {
-  color: var(--text);
-  background: var(--surface-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
-}
-
-/* ============ EXPERIENCE CARD ============ */
-.card-experience {
-  grid-column: 5 / 9;
-  grid-row: span 3;
-}
-
-.exp-item {
-  margin-bottom: 24px;
-}
-
-.exp-item:last-child {
-  margin-bottom: 0;
-}
-
-.exp-date {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--accent);
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
-}
-
-.exp-role {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-
-.exp-org {
-  font-size: 0.82rem;
-  color: var(--text-faint);
-  margin-bottom: 10px;
-}
-
-.exp-bullets {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.exp-bullet {
-  font-size: 0.8rem;
-  color: var(--text-dim);
-  line-height: 1.6;
-  padding-left: 14px;
-  position: relative;
-}
-
-.exp-bullet::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-size: 0.7rem;
-}
-
-/* ============ EDUCATION CARD ============ */
-.card-education {
-  grid-column: 9 / 13;
-  grid-row: span 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.edu-item {
-  margin-bottom: 20px;
-}
-
-.edu-item:last-child {
-  margin-bottom: 0;
-}
-
-.edu-year {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--secondary);
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
-}
-
-.edu-degree {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 3px;
-}
-
-.edu-school {
-  font-size: 0.82rem;
-  color: var(--text-faint);
-}
-
-.edu-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
-  background: var(--tertiary-glow);
-  border: 1px solid rgba(242, 204, 143, 0.15);
-  border-radius: 100px;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  color: var(--tertiary);
-  margin-top: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* ============ PROJECTS SECTION ============ */
-.card-projects {
-  grid-column: 1 / 13;
-  padding: 28px 0 28px 28px;
-}
-
-.card-projects .card-label {
-  padding-left: 0;
-}
-
-.projects-scroll {
-  display: flex;
-  gap: var(--gap);
-  overflow-x: auto;
-  padding-bottom: 12px;
-  padding-right: 28px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--surface-raised) transparent;
-}
-
-.projects-scroll::-webkit-scrollbar {
-  height: 4px;
-}
-
-.projects-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.projects-scroll::-webkit-scrollbar-thumb {
-  background: var(--surface-raised);
-  border-radius: 4px;
-}
-
-.project-tile {
-  flex: 0 0 320px;
-  background: var(--surface-raised);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  transition: all 0.35s var(--ease);
-  cursor: pointer;
-}
-
-.project-tile:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-}
-
-.project-tile-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.project-emoji {
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.project-type {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 100px;
-  border: 1px solid;
-}
-
-.ptype-dl {
-  color: var(--accent);
-  border-color: rgba(224, 122, 95, 0.2);
-  background: var(--accent-glow);
-}
-
-.ptype-ds {
-  color: var(--secondary);
-  border-color: rgba(129, 178, 154, 0.2);
-  background: var(--secondary-glow);
-}
-
-.ptype-ai {
-  color: var(--tertiary);
-  border-color: rgba(242, 204, 143, 0.2);
-  background: var(--tertiary-glow);
-}
-
-.ptype-eng {
-  color: var(--text-dim);
-  border-color: var(--border);
-  background: var(--surface);
-}
-
-.project-name {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.project-desc {
-  font-size: 0.82rem;
-  color: var(--text-dim);
-  line-height: 1.6;
-  flex: 1;
-}
-
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.project-tech span {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  padding: 3px 8px;
-  background: var(--surface);
-  border-radius: 4px;
-  color: var(--text-faint);
-  letter-spacing: 0.3px;
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--accent);
-  letter-spacing: 0.3px;
-  transition: gap 0.3s var(--ease);
-}
-
-.project-link:hover {
-  gap: 10px;
-}
-
-.project-link svg {
-  width: 14px;
-  height: 14px;
-  transition: transform 0.3s var(--ease);
-}
-
-.project-link:hover svg {
-  transform: translateX(2px);
-}
-
-/* ============ BOTTOM ROW — CONNECT + LOCATION ============ */
-.card-connect {
-  grid-column: 1 / 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 32px;
-}
-
-.connect-text {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.connect-text .dim {
-  color: var(--text-dim);
-}
-
-.connect-links {
-  display: flex;
-  gap: 10px;
-}
-
-.connect-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  border-radius: 100px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.3px;
-  transition: all 0.3s var(--ease);
-}
-
-.connect-btn.github {
-  background: var(--surface-raised);
-  border: 1px solid var(--border);
-  color: var(--text);
-}
-
-.connect-btn.github:hover {
-  border-color: var(--border-hover);
-  background: var(--accent-glow);
-  transform: translateY(-2px);
-}
-
-.connect-btn.linkedin {
-  background: var(--accent);
-  color: var(--text-inverse);
-  font-weight: 700;
-}
-
-.connect-btn.linkedin:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--accent-glow);
-}
-
-.card-location {
-  grid-column: 7 / 10;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.location-icon {
-  font-size: 1.6rem;
-  margin-bottom: 8px;
-}
-
-.location-city {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.location-country {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-faint);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.card-status {
-  grid-column: 10 / 13;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.status-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--secondary);
-  margin-bottom: 10px;
-  animation: pulse-status 2s infinite;
-}
-
-@keyframes pulse-status {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(129, 178, 154, 0.4);
-  }
-
-  50% {
-    box-shadow: 0 0 0 8px rgba(129, 178, 154, 0);
-  }
-}
-
-.status-text {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.status-sub {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  color: var(--text-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 4px;
-}
-
-/* Footer */
-.footer-bar {
-  text-align: center;
-  padding: 32px 0 20px;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-faint);
-  letter-spacing: 0.5px;
-}
-
-/* ============ ANIMATIONS ============ */
-.card {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: card-in 0.6s var(--ease) forwards;
-}
-
-@keyframes card-in {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card:nth-child(1) {
-  animation-delay: 0.05s;
-}
-
-.card:nth-child(2) {
-  animation-delay: 0.10s;
-}
-
-.card:nth-child(3) {
-  animation-delay: 0.15s;
-}
-
-.card:nth-child(4) {
-  animation-delay: 0.18s;
-}
-
-.card:nth-child(5) {
-  animation-delay: 0.22s;
-}
-
-.card:nth-child(6) {
-  animation-delay: 0.26s;
-}
-
-.card:nth-child(7) {
-  animation-delay: 0.30s;
-}
-
-.card:nth-child(8) {
-  animation-delay: 0.34s;
-}
-
-.card:nth-child(9) {
-  animation-delay: 0.38s;
-}
-
-.card:nth-child(10) {
-  animation-delay: 0.42s;
-}
-
-.card:nth-child(11) {
-  animation-delay: 0.44s;
-}
-
-.card:nth-child(12) {
-  animation-delay: 0.46s;
-}
-
-/* ============ RESPONSIVE ============ */
-@media (max-width: 1024px) {
-  .bento {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .card-hero {
-    grid-column: 1 / 7;
-    grid-row: 1 / 3;
-  }
-
-  .card-about {
-    grid-column: 1 / 7;
-    grid-row: auto;
-  }
-
-  .card-stat:nth-of-type(3) {
-    grid-column: 1 / 4;
-  }
-
-  .card-stat:nth-of-type(4) {
-    grid-column: 4 / 7;
-  }
-
-  .card-skills {
-    grid-column: 1 / 7;
-    grid-row: auto;
-  }
-
-  .skills-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .card-projects {
-    grid-column: 1 / 7;
-  }
-
-  .card-connect {
-    grid-column: 1 / 5;
-  }
-
-  .card-status {
-    grid-column: 5 / 7;
-  }
-}
-
-@media (max-width: 768px) {
-  .portfolio {
-    padding: 12px;
-  }
-
-  .bento {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .card-hero {
-    grid-column: 1 / -1;
-    grid-row: auto;
-    padding: 28px;
-  }
-
-  .card-about {
-    grid-column: 1 / -1;
-  }
-
-  .card-stat:nth-of-type(3) {
-    grid-column: 1 / 2;
-  }
-
-  .card-stat:nth-of-type(4) {
-    grid-column: 2 / 3;
-  }
-
-  .card-skills {
-    grid-column: 1 / -1;
-    grid-row: auto;
-  }
-
-  .skills-columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .card-projects {
-    grid-column: 1 / -1;
-  }
-
-  .card-connect {
-    grid-column: 1 / -1;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .card-status {
-    grid-column: 1 / -1;
-  }
-
-  .hero-name {
-    font-size: 2.4rem;
-    letter-spacing: -1px;
-  }
-
-  .top-links a:not(:last-child) {
-    display: none;
-  }
-
-  .connect-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .project-tile {
-    flex: 0 0 280px;
-  }
-}
-
-@media (max-width: 480px) {
-  .bento {
-    grid-template-columns: 1fr;
-  }
-
-  .card-stat:nth-of-type(3),
-  .card-stat:nth-of-type(4),
-  .card-status {
-    grid-column: 1 / -1;
-  }
-
-  .skills-columns {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-name {
-    font-size: 2rem;
-  }
-}
-  </style>
+    content="Vikas Sharma — AI Engineer. Deep Learning, Computer Vision, Edge Deployment, and Agentic AI. Models that ship, not just notebooks." />
+
+  <!-- Social sharing. Update og:url when you know your final domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vikas Sharma — AI Engineer" />
+  <meta property="og:description"
+    content="Deep Learning, Computer Vision, Edge Deployment, and Agentic AI — models that ship, not just notebooks." />
+  <meta property="og:url" content="https://thisisvikas21.github.io/" />
+  <meta property="og:site_name" content="Vikas Sharma — CodeVik" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Vikas Sharma — AI Engineer" />
+  <meta name="twitter:description"
+    content="Deep Learning, Computer Vision, Edge Deployment, and Agentic AI — models that ship, not just notebooks." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>" />
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='12' y='12' width='76' height='76' fill='none' stroke='%23ffd23f' stroke-width='10'/></svg>" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vikas Sharma",
+    "jobTitle": "AI Engineer",
+    "url": "https://thisisvikas21.github.io/",
+    "sameAs": [
+      "https://github.com/thisisvikas21",
+      "https://www.linkedin.com/in/vikas-sharma-iitm/"
+    ],
+    "knowsAbout": [
+      "Deep Learning", "Computer Vision", "Machine Learning",
+      "Edge AI Deployment", "Agentic AI", "LLM Systems"
+    ]
+  }
+  </script>
+
+  <!-- Lets CSS hide things only when JS will animate them in. -->
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
 
-  <div class="portfolio">
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- TOP BAR -->
-    <div class="top-bar">
-      <div class="logo">◆ CodeVik</div>
-      <div class="top-links">
-        <a href="https://github.com/thisisvikas21" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-            <path
-              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
-          </svg>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/vikas-sharma-iitm/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-            <path
-              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-          </svg>
-          LinkedIn
-        </a>
-      </div>
+  <!-- BOOT SEQUENCE (skipped for reduced motion; click to skip) -->
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot-lines">
+      <p class="boot-line">&gt; vision_system.init()</p>
+      <p class="boot-line">&gt; loading weights .......... <span class="ok">ok</span></p>
+      <p class="boot-line">&gt; camera feed ............... <span class="ok">live</span></p>
+      <p class="boot-line">&gt; detecting subject .........</p>
     </div>
+  </div>
 
-    <!-- ========== BENTO GRID ========== -->
-    <div class="bento">
+  <!-- CURSOR CROSSHAIR (desktop only, decorative) -->
+  <div class="xhair" id="xhair" aria-hidden="true">
+    <span class="xhair-v"></span>
+    <span class="xhair-h"></span>
+    <span class="xhair-coords" id="xhairCoords">x:0000 y:0000</span>
+  </div>
 
-      <!-- HERO -->
-      <div class="card card-hero">
-        <div class="hero-greeting">// hello world</div>
-        <h1 class="hero-name">
-          Vikas<br /><span class="accent">Sharma</span><span class="sage">.</span>
-        </h1>
-        <div class="hero-role">
-          <span id="typedText"></span><span class="typed-cursor">_</span>
+  <!-- HUD VIEWPORT CORNERS -->
+  <div class="hud" aria-hidden="true">
+    <span class="hud-corner tl"></span>
+    <span class="hud-corner tr"></span>
+    <span class="hud-corner bl"></span>
+    <span class="hud-corner br"></span>
+  </div>
+
+  <!-- SECTION RAIL -->
+  <nav class="rail mono" aria-label="Sections">
+    <a href="#about" data-rail="about"><span class="rail-n">01</span><span class="rail-t">about</span></a>
+    <a href="#stack" data-rail="stack"><span class="rail-n">02</span><span class="rail-t">pipeline</span></a>
+    <a href="#work" data-rail="work"><span class="rail-n">03</span><span class="rail-t">work</span></a>
+    <a href="#connect" data-rail="connect"><span class="rail-n">04</span><span class="rail-t">connect</span></a>
+  </nav>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-id">
+      <span class="rec-dot" aria-hidden="true"></span>
+      <span class="topbar-logo">CODEVIK<span class="dim">.SYS</span></span>
+      <span class="sys mono" id="sysStatus" aria-hidden="true">sys:idle</span>
+    </div>
+    <div class="topbar-right">
+      <span class="scan-pct mono" id="scanPct" aria-hidden="true">scan 000%</span>
+      <nav class="topbar-links" aria-label="Profiles">
+        <a href="https://github.com/thisisvikas21" target="_blank" rel="noopener">github</a>
+        <a href="https://www.linkedin.com/in/vikas-sharma-iitm/" target="_blank" rel="noopener">linkedin</a>
+      </nav>
+    </div>
+    <span class="scan-progress" id="scanProgress" aria-hidden="true"></span>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-label="Introduction">
+      <canvas class="field" id="field" aria-hidden="true"></canvas>
+
+      <div class="hero-inner">
+        <p class="hero-eyebrow mono">&gt; frame_0001 — subject acquired</p>
+
+        <div class="target" id="heroTarget">
+          <span class="target-label mono" aria-hidden="true">person: vikas_sharma <b>0.99</b></span>
+          <h1 class="hero-name" data-scramble>VIKAS<br />SHARMA</h1>
+          <span class="tick t1" aria-hidden="true"></span>
+          <span class="tick t2" aria-hidden="true"></span>
+          <span class="tick t3" aria-hidden="true"></span>
+          <span class="tick t4" aria-hidden="true"></span>
         </div>
-        <p class="hero-summary">
+
+        <p class="hero-role mono">
+          <span class="visually-hidden">AI Engineer — Deep Learning, Computer Vision, Edge AI, and Agentic AI.</span>
+          <span aria-hidden="true">&gt;&nbsp;<span id="roleText">AI Engineer</span><span class="caret">▌</span></span>
+        </p>
+
+        <ul class="hero-classes" aria-label="Focus areas">
+          <li class="cls cls-y">deep_learning <span>0.98</span></li>
+          <li class="cls cls-y">computer_vision <span>0.97</span></li>
+          <li class="cls cls-m">agentic_ai <span>0.95</span></li>
+          <li class="cls cls-m">llm_systems <span>0.94</span></li>
+          <li class="cls cls-t">edge_deployment <span>0.96</span></li>
+          <li class="cls cls-t">ml_engineering <span>0.97</span></li>
+        </ul>
+
+        <p class="hero-sub">
           Skilled across the full AI lifecycle — from data engineering and modeling
           to hardware-accelerated deployment and real-time systems.
         </p>
       </div>
 
-      <!-- ABOUT -->
-      <div class="card card-about">
-        <div>
-          <div class="card-label">// who am i</div>
+      <p class="scroll-cue mono" aria-hidden="true">▼ scroll to inspect</p>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="section" id="about" aria-labelledby="about-h">
+      <div class="detect-frame">
+        <span class="frame-label mono" aria-hidden="true">class: about — conf 0.98</span>
+        <h2 class="section-h" id="about-h" data-scramble>WHO_AM_I</h2>
+
+        <div class="about-grid">
           <p class="about-text">
             I build <strong>AI systems that work in the real world</strong> — not just
             in notebooks. From training deep learning models to deploying them on
             <strong>edge hardware</strong>, I focus on the full pipeline: data, model,
-            optimization, deployment. I work with modern AI tools like <strong>Cursor,
-              Claude, and Codex</strong> to ship faster and build smarter.
+            optimization, deployment. I work with modern AI tools like
+            <strong>Cursor, Claude, and Codex</strong> to ship faster and build smarter.
           </p>
-        </div>
-        <div class="about-tags">
-          <span class="about-tag t1">Deep Learning</span>
-          <span class="about-tag t1">Computer Vision</span>
-          <span class="about-tag t2">ML Engineering</span>
-          <span class="about-tag t2">Edge Deployment</span>
-          <span class="about-tag t3">Agentic AI</span>
-          <span class="about-tag t3">LLM Systems</span>
-        </div>
-      </div>
 
-      <!-- STATS -->
-      <div class="card card-stat">
-        <div class="stat-number c1" data-count="9">0</div>
-        <div class="stat-desc">Repos</div>
-      </div>
-      <div class="card card-stat">
-        <div class="stat-number c2" data-count="20">0+</div>
-        <div class="stat-desc">Technologies</div>
-      </div>
-
-      <div class="card card-skills">
-        <div class="card-label">// tech stack</div>
-        <div class="skills-columns">
-          <div class="skills-group">
-            <div class="skills-group-title"><span class="dot c-accent"></span> Deep Learning & Vision</div>
-            <div class="skill-chips">
-              <span class="skill-chip">PyTorch</span>
-              <span class="skill-chip">TensorFlow</span>
-              <span class="skill-chip">U-Net</span>
-              <span class="skill-chip">ResNet</span>
-              <span class="skill-chip">LSTM</span>
-              <span class="skill-chip">Transformers</span>
-              <span class="skill-chip">Object Detection</span>
-              <span class="skill-chip">Segmentation</span>
+          <div class="readouts">
+            <div class="readout">
+              <span class="readout-n mono" data-count="9" data-suffix="">0</span>
+              <span class="readout-l mono">public_repos</span>
             </div>
-          </div>
-          <div class="skills-group">
-            <div class="skills-group-title"><span class="dot c-sage"></span> Deployment & Infra</div>
-            <div class="skill-chips">
-              <span class="skill-chip">ONNX</span>
-              <span class="skill-chip">TensorRT</span>
-              <span class="skill-chip">Jetson Orin</span>
-              <span class="skill-chip">Docker</span>
-              <span class="skill-chip">Linux</span>
-              <span class="skill-chip">Git</span>
+            <div class="readout">
+              <span class="readout-n mono" data-count="20" data-suffix="+">0+</span>
+              <span class="readout-l mono">technologies</span>
             </div>
-          </div>
-          <div class="skills-group">
-            <div class="skills-group-title"><span class="dot c-sand"></span> Agentic AI & LLMs</div>
-            <div class="skill-chips">
-              <span class="skill-chip">RAG</span>
-              <span class="skill-chip">Multi-Agent</span>
-              <span class="skill-chip">Prompt Engineering</span>
-              <span class="skill-chip">Cursor</span>
-              <span class="skill-chip">Claude</span>
-              <span class="skill-chip">Codex</span>
-            </div>
-          </div>
-          <div class="skills-group">
-            <div class="skills-group-title"><span class="dot c-accent"></span> Data & ML</div>
-            <div class="skill-chips">
-              <span class="skill-chip">Python</span>
-              <span class="skill-chip">SQL</span>
-              <span class="skill-chip">Pandas</span>
-              <span class="skill-chip">Scikit-learn</span>
-              <span class="skill-chip">NumPy</span>
-              <span class="skill-chip">Tableau</span>
+            <div class="readout">
+              <span class="readout-n mono status-open">OPEN</span>
+              <span class="readout-l mono">to_work</span>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-
-
-      <!-- PROJECTS — HORIZONTAL SCROLL -->
-      <div class="card card-projects">
-        <div class="card-label">// featured work</div>
-        <div class="projects-scroll">
-
-
-          
-
-          <!-- GOV-SIM -->
-          <a class="project-tile" href="https://github.com/thisisvikas21/GOV-SIM" target="_blank" rel="noopener">
-            <div class="project-tile-top">
-              <span class="project-emoji">🏛️</span>
-              <span class="project-type ptype-ai">Agentic AI</span>
-            </div>
-            <div class="project-name">GOV-SIM Agents</div>
-            <div class="project-desc">
-              Fairness-aware multi-agent AI for transparent public fund allocation.
-              Modular agents with Gemini-powered planning, development scoring, simulation modeling, and
-              fairness-constrained optimization.
-            </div>
-            <div class="project-tech">
-              <span>Python</span><span>Google Gemini (LLM)</span><span>Streamlit</span><span>PuLP (MILP)</span><span>Explainable AI</span>
-            </div>
-            <div class="project-link">
-              view source
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-          </a>
-
-          <!-- ELCellNet -->
-          <a class="project-tile" href="https://github.com/thisisvikas21/ELCellNet" target="_blank" rel="noopener">
-            <div class="project-tile-top">
-              <span class="project-emoji">⚡</span>
-              <span class="project-type ptype-dl">Deep Learning</span>
-            </div>
-            <div class="project-name">ELCellNet</div>
-            <div class="project-desc">
-              U-Net + ResNet-34 for multi-class defect segmentation in solar cell
-              electroluminescence images. 24→10 class remapping, Dice+CE loss, AMP training.
-            </div>
-            <div class="project-tech">
-              <span>Python</span><span>PyTorch</span><span>U-Net</span><span>ResNet-34</span><span>AMP</span>
-            </div>
-            <div class="project-link">
-              view source
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-          </a>
-
-          <!-- Lead Scoring AI -->
-          <a class="project-tile" href="https://github.com/thisisvikas21/lead_scoring_ai_employee" target="_blank" rel="noopener">
-            <div class="project-tile-top">
-              <span class="project-emoji">🎯</span>
-              <span class="project-type ptype-ai">ML Product</span>
-            </div>
-            <div class="project-name">Lead Scoring AI</div>
-            <div class="project-desc">
-              End-to-end lead conversion prediction system with multi-model comparison,
-              probability calibration, threshold optimization, FastAPI serving, and Streamlit dashboard.
-            </div>
-            <div class="project-tech">
-              <span>Python</span><span>Scikit-learn</span><span>FastAPI</span><span>Streamlit</span><span>Model Calibration</span>
-            </div>
-            <div class="project-link">
-              view source
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-          </a>
-
-          <!-- Annotation Vision -->
-          <a class="project-tile" href="https://github.com/thisisvikas21/Annotation_vision" target="_blank"
-            rel="noopener">
-            <div class="project-tile-top">
-              <span class="project-emoji">🔥</span>
-              <span class="project-type ptype-dl">Vision</span>
-            </div>
-            <div class="project-name">Annotation Vision</div>
-            <div class="project-desc">
-              717-image fire detection dataset with bounding box annotations via
-              Roboflow at 416×416 resolution. Version-controlled data pipeline.
-            </div>
-            <div class="project-tech">
-              <span>Roboflow</span><span>Object Detection</span><span>Bounding Boxes</span><span>Dataset Curation</span>
-            </div>
-            <div class="project-link">
-              view source
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-          </a>
-
-          <!-- Florida Keys -->
-          <a class="project-tile" href="https://github.com/thisisvikas21/Florida_Keys_Data_Challenge"
-            target="_blank" rel="noopener">
-            <div class="project-tile-top">
-              <span class="project-emoji">🌊</span>
-              <span class="project-type ptype-ds">Data Science</span>
-            </div>
-            <div class="project-name">Coral Reef Forecasting</div>
-            <div class="project-desc">
-              Florida Keys coral health assessment — 13 visualizations, spatio-temporal
-              EDA, and forecasting through 2028 with Prophet & Linear Regression.
-            </div>
-            <div class="project-tech">
-              <span>Python</span><span>Pandas</span><span>Prophet</span><span>Time-Series Forecasting</span><span>Data Visualization</span>
-            </div>
-            <div class="project-link">
-              view source
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-          </a>
-
-          <!-- Airbnb -->
-          <a class="project-tile" href="https://github.com/thisisvikas21/airbnb-eda-numpy-pandas" target="_blank"
-            rel="noopener">
-            <div class="project-tile-top">
-              <span class="project-emoji">🏠</span>
-              <span class="project-type ptype-ds">Analytics</span>
-            </div>
-            <div class="project-name">Airbnb NYC Analysis</div>
-            <div class="project-desc">
-              EDA of 48K+ NYC Airbnb listings — pricing, room types, neighborhood
-              trends. Interactive Tableau dashboards for business insights.
-            </div>
-            <div class="project-tech">
-              <span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>EDA</span>
-            </div>
-            <div class="project-link">
-              view source
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-          </a>
-
-          <!-- DBMS -->
-          <a class="project-tile" href="https://github.com/thisisvikas21/product-dissection-dbms" target="_blank"
-            rel="noopener">
-            <div class="project-tile-top">
-              <span class="project-emoji">🗄️</span>
-              <span class="project-type ptype-eng">Engineering</span>
-            </div>
-            <div class="project-name">Product Dissection — DBMS</div>
-            <div class="project-desc">
-              Database schema modeling, ER diagrams, normalization, and relational
-              design for real-world product architectures.
-            </div>
-            <div class="project-tech">
-              <span>SQL</span><span>DBMS</span><span>ER Modeling</span><span>Schema Design</span>
-            </div>
-            <div class="project-link">
-              view source
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-          </a>
-
-        </div>
+    <!-- ================= TICKER ================= -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track mono">
+        <span>PyTorch ◆ TensorFlow ◆ ONNX ◆ TensorRT ◆ Jetson Orin ◆ Docker ◆ Python ◆ SQL ◆ RAG ◆ Multi-Agent ◆ U-Net ◆ ResNet ◆ Transformers ◆ Scikit-learn ◆ Pandas ◆ Tableau ◆&nbsp;</span>
+        <span>PyTorch ◆ TensorFlow ◆ ONNX ◆ TensorRT ◆ Jetson Orin ◆ Docker ◆ Python ◆ SQL ◆ RAG ◆ Multi-Agent ◆ U-Net ◆ ResNet ◆ Transformers ◆ Scikit-learn ◆ Pandas ◆ Tableau ◆&nbsp;</span>
       </div>
-
-      <!-- CONNECT -->
-      <div class="card card-connect">
-        <div class="connect-text">Let's build something <span class="dim">together.</span></div>
-        <div class="connect-links">
-          <a href="https://github.com/thisisvikas21" target="_blank" rel="noopener" class="connect-btn github">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-              <path
-                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
-            </svg>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/vikas-sharma-iitm/" target="_blank" rel="noopener"
-            class="connect-btn linkedin">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-            LinkedIn
-          </a>
-        </div>
-      </div>
-
-      <!-- STATUS -->
-      <div class="card card-status">
-        <div class="status-dot"></div>
-        <div class="status-text">Open to Work</div>
-        <div class="status-sub">available for roles</div>
-      </div>
-
-    </div><!-- .bento -->
-
-    <div class="footer-bar">
-      © 2026 vikas sharma ◆ Made in Bharat ♥
     </div>
 
-  </div><!-- .portfolio -->
+    <!-- ================= PIPELINE ================= -->
+    <section class="section" id="stack" aria-labelledby="stack-h">
+      <div class="detect-frame">
+        <span class="frame-label mono" aria-hidden="true">class: inference_pipeline — conf 0.97</span>
+        <h2 class="section-h" id="stack-h" data-scramble>THE_PIPELINE</h2>
+        <p class="section-sub">Every project runs the same route — data in, deployed intelligence out.</p>
 
-  <script>
-/* ============================================
-   VIKAS SHARMA — BENTO PORTFOLIO JS
-   Typed text + Count-up animations
-   ============================================ */
+        <div class="pipeline">
 
-document.addEventListener('DOMContentLoaded', () => {
-  initTypedText();
-  initCountUp();
-});
+          <div class="stage" style="--i:0">
+            <span class="stage-n mono">01</span>
+            <h3 class="stage-t">data</h3>
+            <ul class="chips">
+              <li>Python</li><li>SQL</li><li>Pandas</li><li>NumPy</li><li>Scikit-learn</li><li>Tableau</li>
+            </ul>
+          </div>
 
-/* ---- Typed Text ---- */
-function initTypedText() {
-  const el = document.getElementById('typedText');
-  if (!el) return;
+          <div class="pipe" aria-hidden="true"><span class="pipe-line" style="--i:1"></span></div>
 
-  const strings = [
-    'AI-Driven Scientist & Engineer',
-    'Deep Learning Specialist',
-    'Computer Vision Developer',
-    'Edge AI & Deployment Engineer',
-    'Agentic AI Builder',
-  ];
+          <div class="stage" style="--i:1">
+            <span class="stage-n mono">02</span>
+            <h3 class="stage-t">model</h3>
+            <ul class="chips">
+              <li>PyTorch</li><li>TensorFlow</li><li>U-Net</li><li>ResNet</li><li>LSTM</li>
+              <li>Transformers</li><li>Detection</li><li>Segmentation</li>
+            </ul>
+          </div>
 
-  let strIdx = 0;
-  let charIdx = 0;
-  let deleting = false;
-  let pause = false;
+          <div class="pipe" aria-hidden="true"><span class="pipe-line" style="--i:2"></span></div>
 
-  function tick() {
-    const current = strings[strIdx];
+          <div class="stage" style="--i:2">
+            <span class="stage-n mono">03</span>
+            <h3 class="stage-t">optimize_deploy</h3>
+            <ul class="chips">
+              <li>ONNX</li><li>TensorRT</li><li>Jetson Orin</li><li>Docker</li><li>Linux</li><li>Git</li>
+            </ul>
+          </div>
 
-    if (pause) {
-      pause = false;
-      setTimeout(tick, deleting ? 400 : 1800);
-      return;
-    }
+          <div class="pipe" aria-hidden="true"><span class="pipe-line" style="--i:3"></span></div>
 
-    if (!deleting) {
-      el.textContent = current.substring(0, charIdx + 1);
-      charIdx++;
-      if (charIdx === current.length) {
-        deleting = true;
-        pause = true;
-      }
-    } else {
-      el.textContent = current.substring(0, charIdx - 1);
-      charIdx--;
-      if (charIdx === 0) {
-        deleting = false;
-        strIdx = (strIdx + 1) % strings.length;
-        pause = true;
-      }
-    }
+          <div class="stage" style="--i:3">
+            <span class="stage-n mono">04</span>
+            <h3 class="stage-t">agents</h3>
+            <ul class="chips">
+              <li>RAG</li><li>Multi-Agent</li><li>Prompt Engineering</li><li>Cursor</li><li>Claude</li><li>Codex</li>
+            </ul>
+          </div>
 
-    const speed = deleting ? 30 : 60;
-    setTimeout(tick, speed);
-  }
+        </div>
+      </div>
+    </section>
 
-  setTimeout(tick, 600);
-}
+    <!-- ================= WORK ================= -->
+    <section class="section" id="work" aria-labelledby="work-h">
+      <div class="detect-frame">
+        <span class="frame-label mono" aria-hidden="true">class: featured_work — conf 0.99</span>
+        <h2 class="section-h" id="work-h" data-scramble>DETECTIONS — 7 OBJECTS</h2>
 
-/* ---- Count Up ---- */
-function initCountUp() {
-  const counters = document.querySelectorAll('[data-count]');
+        <div class="det-grid">
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.getAttribute('data-count'));
-        const suffix = el.textContent.replace(/\d/g, '');
-        animateCount(el, 0, target, 1200, suffix);
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
+          <!-- obj_01 GOV-SIM: agent graph -->
+          <a class="det-card c-m" href="https://github.com/thisisvikas21/GOV-SIM" target="_blank" rel="noopener" style="--d:0s">
+            <div class="thumb-wrap" aria-hidden="true">
+              <svg class="thumb" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+                <line class="st draw" pathLength="400" x1="52" y1="60" x2="128" y2="26" />
+                <line class="st draw" pathLength="400" x1="52" y1="60" x2="128" y2="94" />
+                <line class="st dash" x1="128" y1="26" x2="196" y2="60" />
+                <line class="st dash" x1="128" y1="94" x2="196" y2="60" />
+                <line class="st draw" pathLength="400" x1="196" y1="60" x2="268" y2="32" />
+                <line class="st draw" pathLength="400" x1="196" y1="60" x2="268" y2="88" />
+                <circle class="node draw" pathLength="400" cx="52" cy="60" r="9" />
+                <circle class="node draw" pathLength="400" cx="128" cy="26" r="7" />
+                <circle class="node draw" pathLength="400" cx="128" cy="94" r="7" />
+                <circle class="node hub draw" pathLength="400" cx="196" cy="60" r="11" />
+                <circle class="node draw" pathLength="400" cx="268" cy="32" r="7" />
+                <circle class="node draw" pathLength="400" cx="268" cy="88" r="7" />
+              </svg>
+            </div>
+            <div class="det-head mono"><span class="det-id">obj_01</span><span class="det-cls">agentic_ai</span></div>
+            <h3 class="det-name">GOV-SIM Agents</h3>
+            <p class="det-desc">
+              Fairness-aware multi-agent AI for transparent public fund allocation —
+              Gemini-powered planning, development scoring, simulation modeling, and
+              fairness-constrained optimization.
+            </p>
+            <ul class="det-tags mono" aria-label="Built with">
+              <li>Python</li><li>Google Gemini</li><li>Streamlit</li><li>PuLP (MILP)</li><li>Explainable AI</li>
+            </ul>
+            <span class="det-link mono">view_source ↗</span>
+          </a>
 
-  counters.forEach(c => observer.observe(c));
-}
+          <!-- obj_02 ELCellNet: segmentation mask on cell busbars -->
+          <a class="det-card c-y" href="https://github.com/thisisvikas21/ELCellNet" target="_blank" rel="noopener" style="--d:0.06s">
+            <div class="thumb-wrap" aria-hidden="true">
+              <svg class="thumb" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+                <rect class="st draw" pathLength="400" x="24" y="14" width="272" height="92" />
+                <line class="grid-l" x1="92" y1="14" x2="92" y2="106" />
+                <line class="grid-l" x1="160" y1="14" x2="160" y2="106" />
+                <line class="grid-l" x1="228" y1="14" x2="228" y2="106" />
+                <path class="blob pulse" d="M60 46 q14 -12 26 0 q10 12 -4 20 q-16 8 -24 -4 q-4 -8 2 -16 Z" />
+                <path class="blob pulse" d="M196 68 q10 -16 24 -8 q14 8 4 22 q-10 12 -24 4 q-10 -8 -4 -18 Z" />
+                <path class="blob pulse" d="M254 30 q8 -8 16 -1 q7 8 -2 14 q-10 6 -15 -3 q-3 -6 1 -10 Z" />
+              </svg>
+            </div>
+            <div class="det-head mono"><span class="det-id">obj_02</span><span class="det-cls">deep_learning</span></div>
+            <h3 class="det-name">ELCellNet</h3>
+            <p class="det-desc">
+              U-Net + ResNet-34 for multi-class defect segmentation in solar cell
+              electroluminescence images. 24→10 class remapping, Dice+CE loss, AMP training.
+            </p>
+            <ul class="det-tags mono" aria-label="Built with">
+              <li>Python</li><li>PyTorch</li><li>U-Net</li><li>ResNet-34</li><li>AMP</li>
+            </ul>
+            <span class="det-link mono">view_source ↗</span>
+          </a>
 
-function animateCount(el, start, end, duration, suffix) {
-  const startTime = performance.now();
-  function update(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 4);
-    const value = Math.floor(start + (end - start) * eased);
-    el.textContent = value + suffix;
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-  </script>
+          <!-- obj_03 Lead Scoring: calibration curve -->
+          <a class="det-card c-m" href="https://github.com/thisisvikas21/lead_scoring_ai_employee" target="_blank" rel="noopener" style="--d:0.12s">
+            <div class="thumb-wrap" aria-hidden="true">
+              <svg class="thumb" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+                <path class="st draw" pathLength="400" d="M36 14 V100 H292" />
+                <line class="st dash" x1="36" y1="100" x2="284" y2="20" />
+                <path class="st draw thick" pathLength="400" d="M36 100 C 110 96, 180 78, 284 22" />
+                <circle class="pt pulse" cx="98" cy="94" r="3.5" />
+                <circle class="pt pulse" cx="160" cy="84" r="3.5" />
+                <circle class="pt pulse" cx="222" cy="60" r="3.5" />
+                <circle class="pt pulse" cx="270" cy="30" r="3.5" />
+              </svg>
+            </div>
+            <div class="det-head mono"><span class="det-id">obj_03</span><span class="det-cls">ml_product</span></div>
+            <h3 class="det-name">Lead Scoring AI</h3>
+            <p class="det-desc">
+              End-to-end lead conversion prediction — multi-model comparison, probability
+              calibration, threshold optimization, FastAPI serving, and a Streamlit dashboard.
+            </p>
+            <ul class="det-tags mono" aria-label="Built with">
+              <li>Python</li><li>Scikit-learn</li><li>FastAPI</li><li>Streamlit</li><li>Calibration</li>
+            </ul>
+            <span class="det-link mono">view_source ↗</span>
+          </a>
+
+          <!-- obj_04 Annotation Vision: bounding boxes -->
+          <a class="det-card c-y" href="https://github.com/thisisvikas21/Annotation_vision" target="_blank" rel="noopener" style="--d:0.18s">
+            <div class="thumb-wrap" aria-hidden="true">
+              <svg class="thumb" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+                <rect class="st faint" x="20" y="12" width="280" height="96" />
+                <rect class="st dash" x="52" y="34" width="86" height="58" />
+                <rect class="lbl" x="52" y="24" width="42" height="10" />
+                <rect class="st dash" x="182" y="48" width="70" height="44" />
+                <rect class="lbl" x="182" y="38" width="34" height="10" />
+                <line class="st faint" x1="160" y1="12" x2="160" y2="24" />
+                <line class="st faint" x1="160" y1="96" x2="160" y2="108" />
+              </svg>
+            </div>
+            <div class="det-head mono"><span class="det-id">obj_04</span><span class="det-cls">vision</span></div>
+            <h3 class="det-name">Annotation Vision</h3>
+            <p class="det-desc">
+              717-image fire detection dataset with bounding-box annotations via Roboflow
+              at 416×416 resolution. Version-controlled data pipeline.
+            </p>
+            <ul class="det-tags mono" aria-label="Built with">
+              <li>Roboflow</li><li>Object Detection</li><li>Bounding Boxes</li><li>Dataset Curation</li>
+            </ul>
+            <span class="det-link mono">view_source ↗</span>
+          </a>
+
+          <!-- obj_05 Coral Reef: forecast sparkline -->
+          <a class="det-card c-t" href="https://github.com/thisisvikas21/Florida_Keys_Data_Challenge" target="_blank" rel="noopener" style="--d:0.24s">
+            <div class="thumb-wrap" aria-hidden="true">
+              <svg class="thumb" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+                <polyline class="st draw thick" pathLength="400"
+                  points="24,84 62,70 96,78 132,52 168,60 196,42" />
+                <polyline class="st dash" points="196,42 232,36 268,44 296,26" />
+                <line class="st faint" x1="196" y1="16" x2="196" y2="104" />
+                <circle class="pt pulse" cx="196" cy="42" r="4" />
+                <circle class="pt pulse" cx="296" cy="26" r="3.5" />
+              </svg>
+            </div>
+            <div class="det-head mono"><span class="det-id">obj_05</span><span class="det-cls">data_science</span></div>
+            <h3 class="det-name">Coral Reef Forecasting</h3>
+            <p class="det-desc">
+              Florida Keys coral health assessment — 13 visualizations, spatio-temporal EDA,
+              and forecasting through 2028 with Prophet &amp; Linear Regression.
+            </p>
+            <ul class="det-tags mono" aria-label="Built with">
+              <li>Python</li><li>Pandas</li><li>Prophet</li><li>Time-Series</li><li>Data Viz</li>
+            </ul>
+            <span class="det-link mono">view_source ↗</span>
+          </a>
+
+          <!-- obj_06 Airbnb: bars -->
+          <a class="det-card c-t" href="https://github.com/thisisvikas21/airbnb-eda-numpy-pandas" target="_blank" rel="noopener" style="--d:0.30s">
+            <div class="thumb-wrap" aria-hidden="true">
+              <svg class="thumb" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+                <line class="st draw" pathLength="400" x1="24" y1="102" x2="296" y2="102" />
+                <rect class="bar" x="42" y="62" width="22" height="40" />
+                <rect class="bar" x="78" y="44" width="22" height="58" />
+                <rect class="bar" x="114" y="70" width="22" height="32" />
+                <rect class="bar" x="150" y="30" width="22" height="72" />
+                <rect class="bar" x="186" y="54" width="22" height="48" />
+                <rect class="bar" x="222" y="40" width="22" height="62" />
+                <rect class="bar" x="258" y="76" width="22" height="26" />
+              </svg>
+            </div>
+            <div class="det-head mono"><span class="det-id">obj_06</span><span class="det-cls">analytics</span></div>
+            <h3 class="det-name">Airbnb NYC Analysis</h3>
+            <p class="det-desc">
+              EDA of 48K+ NYC Airbnb listings — pricing, room types, neighborhood trends.
+              Interactive Tableau dashboards for business insights.
+            </p>
+            <ul class="det-tags mono" aria-label="Built with">
+              <li>Python</li><li>Pandas</li><li>NumPy</li><li>Matplotlib</li><li>EDA</li>
+            </ul>
+            <span class="det-link mono">view_source ↗</span>
+          </a>
+
+          <!-- obj_07 DBMS: ER diagram -->
+          <a class="det-card c-n" href="https://github.com/thisisvikas21/product-dissection-dbms" target="_blank" rel="noopener" style="--d:0.36s">
+            <div class="thumb-wrap" aria-hidden="true">
+              <svg class="thumb" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+                <rect class="st draw" pathLength="400" x="34" y="30" width="92" height="60" rx="2" />
+                <line class="st draw" pathLength="400" x1="34" y1="48" x2="126" y2="48" />
+                <rect class="st draw" pathLength="400" x="196" y="30" width="92" height="60" rx="2" />
+                <line class="st draw" pathLength="400" x1="196" y1="48" x2="288" y2="48" />
+                <line class="st dash" x1="126" y1="60" x2="196" y2="60" />
+                <line class="st faint" x1="184" y1="60" x2="196" y2="50" />
+                <line class="st faint" x1="184" y1="60" x2="196" y2="60" />
+                <line class="st faint" x1="184" y1="60" x2="196" y2="70" />
+              </svg>
+            </div>
+            <div class="det-head mono"><span class="det-id">obj_07</span><span class="det-cls">engineering</span></div>
+            <h3 class="det-name">Product Dissection — DBMS</h3>
+            <p class="det-desc">
+              Database schema modeling, ER diagrams, normalization, and relational design
+              for real-world product architectures.
+            </p>
+            <ul class="det-tags mono" aria-label="Built with">
+              <li>SQL</li><li>DBMS</li><li>ER Modeling</li><li>Schema Design</li>
+            </ul>
+            <span class="det-link mono">view_source ↗</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONNECT ================= -->
+    <section class="section" id="connect" aria-labelledby="connect-h">
+      <div class="detect-frame">
+        <span class="frame-label mono" aria-hidden="true">class: contact — conf 1.00</span>
+        <h2 class="section-h big" id="connect-h" data-scramble>ESTABLISH_CONNECTION</h2>
+        <p class="connect-sub">Let's build something together.</p>
+
+        <div class="connect-links">
+          <a class="btn btn-solid" href="https://www.linkedin.com/in/vikas-sharma-iitm/" target="_blank" rel="noopener">
+            linkedin ↗
+          </a>
+          <a class="btn btn-line" href="https://github.com/thisisvikas21" target="_blank" rel="noopener">
+            github ↗
+          </a>
+        </div>
+
+        <p class="connect-status mono"><span class="rec-dot g" aria-hidden="true"></span>status: open_to_work — available for roles</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer mono">
+    © 2026 vikas sharma ◆ made in bharat ♥ ◆ <span id="footFrame">frame_∞</span>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 
 </html>
